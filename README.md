@@ -4,16 +4,15 @@ This project is a monorepo for a Point of Sale (POS) system, built with Next.js 
 
 ## Structure
 - **apps/**
-  - `menu`
+  - `menu` (Port 3000)
+  - `providers` (Port 3001 - Est.)
+  - `inventory` (Port 3002 - Est.)
   - `sales`
   - `credit`
-  - `inventory`
   - `payroll`
-  - `providers`
 - **packages/**
   - `@repo/database`: Shared database configuration (Supabase)
   - `tsconfig`: Shared TypeScript configuration
-  - `ui`: Shared UI components (if applicable)
 
 ## Getting Started
 
@@ -26,32 +25,36 @@ This project is a monorepo for a Point of Sale (POS) system, built with Next.js 
 npm install
 ```
 
-### Building
-```bash
-npm run build
-```
-
 ### Running (Development)
 To start all microservices in parallel:
 ```bash
+# Windows Command Prompt
+cmd /c "npm run dev"
+# Or if you have fixed execution policy:
 npm run dev
 ```
 
+The terminal output will show you the URL for each app (e.g., `localhost:3001`).
+
+## Consuming the Services
+
+### 1. Via User Interface
+Each microservice has its own frontend:
+- **Providers App**: Manage suppliers. URL usually `http://localhost:3001`
+- **Inventory App**: Manage products/stock. URL usually `http://localhost:3002`
+
+### 2. Via API
+You can consume the data via HTTP requests (REST API):
+
+**Providers API**
+- `GET /api/providers` - Get all providers
+- `POST /api/providers` - Create provider
+- `DELETE /api/providers/:id` - Delete provider
+
+**Inventory API**
+- `GET /api/products` - Get all products
+- `POST /api/products` - Create product
+- `DELETE /api/products/:id` - Delete product
+
 ## Troubleshooting
-
-### Windows PowerShell "UnauthorizedAccess" Error
-If you see an error like `running scripts is disabled on this system` when running `npm` commands in PowerShell:
-
-**Option 1: Use Command Prompt (cmd)**
-Run the command via `cmd`:
-```bash
-cmd /c "npm run dev"
-```
-
-**Option 2: Change Execution Policy**
-Allow scripts to run in your current user session:
-1. Open PowerShell.
-2. Run:
-   ```powershell
-   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-   ```
+See previous section for PowerShell errors.
